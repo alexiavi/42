@@ -7,8 +7,11 @@ SRCS	=	ft_isalpha.c 				\
 			ft_isascii.c				\
 			ft_isprint.c				\
 			ft_strlen.c					\
+			ft_isupper.c				\
+			ft_islower.c				\
 			ft_memset.c					\
 			ft_bzero.c					\
+			ft_calloc.c					\
 			ft_memcpy.c					\
 			ft_memmove.c				\
 			ft_strlcpy.c				\
@@ -22,12 +25,11 @@ SRCS	=	ft_isalpha.c 				\
 			ft_memcmp.c					\
 			ft_strnstr.c				\
 			ft_atoi.c					\
-			ft_calloc.c					\
 			ft_strdup.c					\
 			ft_substr.c					\
 			ft_strjoin.c				\
 			ft_strtrim.c				\
-			ft_strsplit.c					\
+			ft_strsplit.c				\
 			ft_itoa.c					\
 			ft_strmapi.c				\
 			ft_striteri.c				\
@@ -53,18 +55,14 @@ OBJS	=	$(SRCS:.c=.o)
 
 OBJSB	=	$(SRCB:.c=.o)
 
-
-
 $(NAME):
 	$(CC) $(FLAGS) $(SRCS)
 	$(LIB) $(NAME) $(OBJS)
-	$(RLIB) $(NAME)
 
 all: $(NAME)
 
 bonus:  $(CC) $(FLAGS) $(SRCB)
 	$(LIB) $(NAME) $(OBJSB)
-	$(RLIB) $(NAME)
 
 clean:	
 	rm -f $(OBJS)

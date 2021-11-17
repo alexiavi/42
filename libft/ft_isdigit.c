@@ -13,7 +13,7 @@
 
 int	ft_isdigit(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if (c <= '9' && c >= '0')
 		return (1);
 	else
 		return (0);

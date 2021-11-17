@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s);
 
-char	*strnstr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	size_t	i;
 	size_t	j;
@@ -28,7 +28,7 @@ char	*strnstr(const char *s1, const char *s2, size_t len)
 			if ((char) s1[i] == (char) s2[j++])
 			{
 				if (!(char) s2[j])
-					return ((char *) s2 + j - ft_strlen(s2));
+					return ((char *) s1 + i - ft_strlen(s2) + 1);
 			}
 			else
 				j = 0;
