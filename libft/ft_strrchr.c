@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    char *ptr;
-    char *rtn;
+	char	*ptr;
+	char	*rtn;
 
-    ptr = s;
-    while(*ptr)
-    {
-        if (*ptr == c)
-            rtn = ptr;
-            ptr++;
-    }
-    return (rtn);
+	ptr = (char *)s;
+	while (*ptr)
+	{
+		if (*ptr == c)
+			rtn = ptr;
+		ptr++;
+	}
+	return (rtn);
 }

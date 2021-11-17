@@ -12,18 +12,35 @@
 
 #include "libft.h"
 
-static int	has_whitespaces(char *str, int *i, size_t *j)
+size_t	ft_strlen(const char *s);
+
+int	has_set(char *str, int *i, size_t *j, char *set)
 {
-	while (IS_SPACE(*(str + *i)))
+	int	a;
+	int	control;
+
+	a = 0;
+	control = 0;
+	while (set[a++] == *(str + *i) && *(str + *i))
+	{
+		control = 1;
 		(*i)++;
-	while (IS_SPACE(*(str + *j)))
+		if ((size_t)a == ft_strlen(set))
+			a = 0;
+	}
+	a = ft_strlen(set) - 1;
+	*j = ft_strlen(str) - 1;
+	while (set[a++] ==*(str + *j) && *(str + *j))
+	{
+		control = 1;
 		(*j)--;
-	if (*i || *j < ft_strlen(str))
-		return (1);
-	return (0);
+		if (a == 0)
+			a = ft_strlen(set) - 1;
+	}
+	return (control);
 }
 
-char		*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s, char const *set)
 {
 	int		i;
 	size_t	j;
@@ -36,11 +53,10 @@ char		*ft_strtrim(char const *s)
 	i = 0;
 	k = 0;
 	j = ft_strlen(s) - 1;
-	if (!has_whitespaces((char *)s, &i, &j) || !ft_strlen(s))
+	if (!has_set((char *)s, &i, &j, (char *)set) || !ft_strlen(s))
 		return ((char *)s);
-	new_size = (i == (int)ft_strlen(s)) ? 0 : ft_strlen(s) - (size_t)i - \
-				(ft_strlen(s) - j);
-	new_str = ft_strnew(new_size + 1);
+	new_size = (size_t)i - ft_strlen(s) + j - ft_strlen(s) + ft_strlen(s);
+	new_str = malloc(new_size + 1);
 	if (!new_str)
 		return (NULL);
 	while (i <= (int)j)

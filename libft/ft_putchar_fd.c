@@ -9,9 +9,10 @@
 /*   Updated: 2021/11/16 10:08:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-void ft_putchar_fd(char s, int fd)
+void	ft_putchar_fd(char s, int fd)
 {
-    if (fd >= 0)
-        write(fd, s, 1);
+	if (fd >= 0)
+		write(fd, &s, 1);
 }

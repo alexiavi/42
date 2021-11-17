@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+size_t	ft_strlen(const char *s);
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-
-    char	*new_str;
+	char	*new_str;
 	size_t	i;
 	size_t	j;
 	size_t	s1_len;
@@ -28,12 +28,11 @@ char *ft_strjoin(char const *s1, char const *s2)
 	new_str = malloc(s1_len + s2_len);
 	if (!new_str)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (i < s1_len)
-		*(new_str + i) = *(s1 + i++);
-	while (j < s2_len)
-		*(new_str + i++) = *(s2 + j++);
+	i = -1;
+	j = -1;
+	while (++i < s1_len)
+		*(new_str + i) = *(s1 + i);
+	while (j++ < s2_len)
+		*(new_str + i++) = *(s2 + j);
 	return (new_str);
-
 }

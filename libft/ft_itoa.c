@@ -11,16 +11,22 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 
-    str = (char *)malloc(sizeof(char) * 2;
-	if (!str))
+	str = (char *)malloc(sizeof(char) * 2);
+	if (!str)
 		return (NULL);
 	if (n == -2147483648)
-		return (ft_strcpy(str, "-2147483648"));
+	{
+		str = (char *)malloc(12);
+		ft_strlcpy(str, "-2147483648", 11);
+		return (str);
+	}
 	if (n < 0)
 	{
 		str[0] = '-';

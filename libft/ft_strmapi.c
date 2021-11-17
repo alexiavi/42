@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
+size_t	ft_strlen(const char *s);
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -25,6 +25,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	i = 0;
 	while (*(s + i))
-		*(new_str + i) = f(i, *(s + i++));
+	{
+		*(new_str + i) = f(i, *(s + i));
+		i++;
+	}
 	return (new_str);
 }
